@@ -8,7 +8,7 @@ class Example {
 				zip_stream.putNextEntry(new ZipEntry(file));
 				try (var file_stream = new FileInputStream(file)) {
 					var buf = new byte[4096];
-					var read = 0;
+					int read;
 					while ((read = file_stream.read(buf)) > 0) {
 						zip_stream.write(buf, 0, read);
 					}
